@@ -1,0 +1,10 @@
+﻿CREATE PROCEDURE [dbo].[DosenDeleteById]
+	@id INT
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	DELETE dosen
+	WHERE Id=@id
+
+END
