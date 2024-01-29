@@ -1,0 +1,38 @@
+﻿@model OJKApp.Models.DosenViewModel
+
+@{
+    ViewData["Title"] = Model.id == 0 ? "Input Data Dosen" : "Edit Data Dosen";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="nip" class="control-label"></label>
+                <input asp-for="nip" class="form-control" />
+                <span asp-validation-for="nip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="namaDosen" class="control-label"></label>
+                <input asp-for="namaDosen" class="form-control" />
+                <span asp-validation-for="namaDosen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Simpan" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Lihat Daftar Dosen</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

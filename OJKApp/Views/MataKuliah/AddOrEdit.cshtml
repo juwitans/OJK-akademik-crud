@@ -1,0 +1,43 @@
+﻿@model OJKApp.Models.MataKuliahViewModel
+
+@{
+    ViewData["Title"] = Model.id==0?"Input MK Baru":"Edit MK";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="kodeMatkul" class="control-label"></label>
+                <input asp-for="kodeMatkul" class="form-control" />
+                <span asp-validation-for="kodeMatkul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="namaMatkul" class="control-label"></label>
+                <input asp-for="namaMatkul" class="form-control" />
+                <span asp-validation-for="namaMatkul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sks" class="control-label"></label>
+                <input asp-for="sks" class="form-control" />
+                <span asp-validation-for="sks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Simpan" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Lihat Daftar Mata Kuliah</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
